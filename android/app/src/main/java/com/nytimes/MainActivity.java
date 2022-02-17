@@ -7,6 +7,11 @@ import com.zoontek.rnbootsplash.RNBootSplash; // <- add this necessary import
 public class MainActivity extends ReactActivity {
 
   @Override
+    protected String getMainComponentName() {
+     return "NYTimes";
+  }
+
+  @Override
   protected ReactActivityDelegate createReactActivityDelegate() {
     return new ReactActivityDelegate(this, getMainComponentName()) {
 
