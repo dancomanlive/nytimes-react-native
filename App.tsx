@@ -1,6 +1,9 @@
 import React, {useEffect} from 'react';
-import {SafeAreaView, Text, View} from 'react-native';
 import RNBootSplash from 'react-native-bootsplash';
+import Navigator from '@src/NavigationRouter';
+import {QueryClientProvider, QueryClient} from 'react-query';
+
+const queryClient = new QueryClient();
 
 const App = () => {
   useEffect(() => {
@@ -10,11 +13,9 @@ const App = () => {
   }, []);
 
   return (
-    <SafeAreaView>
-      <View>
-        <Text>Splash Screen</Text>
-      </View>
-    </SafeAreaView>
+    <QueryClientProvider client={queryClient}>
+      <Navigator />
+    </QueryClientProvider>
   );
 };
 
