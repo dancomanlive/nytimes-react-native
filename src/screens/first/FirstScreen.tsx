@@ -28,7 +28,7 @@ const FirstScreen: FunctionComponent<FirstScreenProps> = ({navigation}) => {
   if (isLoading) {
     return (
       <View style={styles.loading}>
-        <ActivityIndicator size="large" color="#0000ff" />
+        <ActivityIndicator size="large" color={Theme.GREEN_COLOR[700]} />
       </View>
     );
   }
@@ -60,7 +60,7 @@ const FirstScreen: FunctionComponent<FirstScreenProps> = ({navigation}) => {
 
 const styles = StyleSheet.create({
   item: {
-    backgroundColor: Theme.GREEN_COLOR[500],
+    backgroundColor: Theme.GREEN_COLOR[600],
     padding: 20,
     marginVertical: 8,
     marginHorizontal: 16,

@@ -16,6 +16,8 @@ import WrapView from '@src/components/shared/WrapView';
 import {Category} from '@src/api/queries/fetchBestSellerCategories';
 import {Book} from '@src/api/queries/fetchBestSellers';
 import {fetchBestSellers} from '@src/api/queries/fetchBestSellers';
+import {addFavorites} from '@src/redux/favorites';
+import {useReduxDispatch, useReduxSelector} from '@src/redux';
 import Theme from '@src/styles/Theme';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Modal from 'react-native-modal';
@@ -33,6 +35,8 @@ interface Item {
 }
 
 const ListScreen: FunctionComponent<ListScreenRoutePops> = ({route}) => {
+  const value = useReduxSelector(state => state.favorites);
+  const dispatch = useReduxDispatch();
   const navigationParams = route?.params?.item;
   const [isModalVisible, setModalVisible] = useState(false);
   const [selectedItem, setSelectedItem] = useState<Book | null>(null);
@@ -45,6 +49,10 @@ const ListScreen: FunctionComponent<ListScreenRoutePops> = ({route}) => {
     Ionicons.loadFont();
   }, []);
 
+  const checkAvailability = (args: string) => {
+    return value.some((item: Book) => args === item?.book_uri);
+  };
+
   const toggleModal = () => {
     setModalVisible(!isModalVisible);
   };
@@ -56,7 +64,7 @@ const ListScreen: FunctionComponent<ListScreenRoutePops> = ({route}) => {
   if (isLoading) {
     return (
       <View style={styles.loading}>
-        <ActivityIndicator size="large" color="#0000ff" />
+        <ActivityIndicator size="large" color={Theme.GREEN_COLOR[700]} />
       </View>
     );
   }
@@ -94,8 +102,16 @@ const ListScreen: FunctionComponent<ListScreenRoutePops> = ({route}) => {
     return (
       <TouchableOpacity onPress={() => onSelect(item)} style={styles.item}>
         <Text style={styles.title}>{item?.title}</Text>
-        <TouchableOpacity>
-          <Ionicons name={'bookmark-outline'} size={25} color={'orange'} />
+        <TouchableOpacity onPress={() => dispatch(addFavorites(item))}>
+          <Ionicons
+            name={
+              checkAvailability(item?.book_uri)
+                ? 'bookmark'
+                : 'bookmark-outline'
+            }
+            size={25}
+            color={'orange'}
+          />
         </TouchableOpacity>
       </TouchableOpacity>
     );

@@ -9,7 +9,7 @@ interface ServerData {
   results: Result;
 }
 
-interface Result {
+export interface Result {
   books: Book[];
 }
 
@@ -22,6 +22,7 @@ export interface Book {
   book_image_height: string;
   amazon_product_url: string;
   description: string;
+  book_uri: string;
 }
 
 export const fetchBestSellers = async (category: string) => {

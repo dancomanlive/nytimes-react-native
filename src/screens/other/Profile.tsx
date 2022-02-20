@@ -6,7 +6,7 @@ import {ProfileScreenProps} from '@src/types/NavigationRouterTypes';
 import Spinner from '@src/components/shared/Spinner';
 
 const Profile: FunctionComponent = () => {
-  const {mutateAsync, data, isLoading} = useMutation(data => logout());
+  // const {mutateAsync, data, isLoading} = useMutation(data => logout());
 
   if (isLoading) {
     return <Spinner />;
@@ -18,7 +18,7 @@ const Profile: FunctionComponent = () => {
       <Button
         title="Logout"
         onPress={() => {
-          mutateAsync();
+          // mutateAsync();
         }}
       />
     </View>
