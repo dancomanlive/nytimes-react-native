@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
   },
   textContainer: {
-    paddingTop: 20,
+    paddingTop: 50,
     paddingBottom: 20,
     left: '5%',
   },

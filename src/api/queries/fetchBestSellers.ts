@@ -18,7 +18,10 @@ export interface Book {
   author: string;
   image: string;
   book_image: string;
+  book_image_width: string;
+  book_image_height: string;
   amazon_product_url: string;
+  description: string;
 }
 
 export const fetchBestSellers = async (category: string) => {
