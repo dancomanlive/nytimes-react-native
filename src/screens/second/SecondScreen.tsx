@@ -24,10 +24,6 @@ const SecondScreen: FunctionComponent = () => {
   const value = useReduxSelector(state => state.favorites);
   const dispatch = useReduxDispatch();
 
-  // const {data, error, isLoading} = useQuery('fetchBestSellers', () =>
-  //   fetchBestSellers(navigationParams?.list_name_encoded),
-  // );
-
   useEffect(() => {
     Ionicons.loadFont();
   }, []);
