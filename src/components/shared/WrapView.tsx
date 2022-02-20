@@ -1,12 +1,13 @@
 import React, {FunctionComponent} from 'react';
-import {View, StyleSheet} from 'react-native';
+import {SafeAreaView, StyleSheet} from 'react-native';
+import Theme from '@src/styles/Theme';
 
 interface MetaViewProps {
   children: React.ReactNode;
 }
 
 const MetaView: FunctionComponent<MetaViewProps> = ({children}) => {
-  return <View style={styles.container}>{children}</View>;
+  return <SafeAreaView style={styles.container}>{children}</SafeAreaView>;
 };
 
 export default MetaView;
@@ -14,8 +15,6 @@ export default MetaView;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: 'white',
+    backgroundColor: Theme.WHITE,
   },
 });

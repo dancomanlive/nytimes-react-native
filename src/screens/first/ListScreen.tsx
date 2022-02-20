@@ -3,22 +3,35 @@ import {
   View,
   Text,
   StyleSheet,
+  FlatList,
   TouchableOpacity,
   ActivityIndicator,
+  ListRenderItemInfo,
 } from 'react-native';
 import {useQuery} from 'react-query';
 import WrapView from '@src/components/shared/WrapView';
-import {fetchBestSellerCategories} from '@src/api/queries/fetchBestSellerCategories';
-import {FirstScreenProps} from '@src/types/NavigationRouterTypes';
-import {FlatList, ListRenderItemInfo} from 'react-native';
-import {AppRoute} from '@src/constants/Routes';
-import Theme from '@src/styles/Theme';
 import {Category} from '@src/api/queries/fetchBestSellerCategories';
+import {Book} from '@src/api/queries/fetchBestSellers';
+import {fetchBestSellers} from '@src/api/queries/fetchBestSellers';
+import Theme from '@src/styles/Theme';
 
-const FirstScreen: FunctionComponent<FirstScreenProps> = ({navigation}) => {
-  const {data, error, isLoading} = useQuery(
-    'fetchBestSellersCategories',
-    fetchBestSellerCategories,
+interface ListScreenRoutePops {
+  route: Route;
+}
+
+interface Route {
+  params: Item;
+}
+
+interface Item {
+  item: Category;
+}
+
+const ListScreen: FunctionComponent<ListScreenRoutePops> = ({route}) => {
+  const navigationParams = route?.params?.item;
+
+  const {data, error, isLoading} = useQuery('fetchBestSellers', () =>
+    fetchBestSellers(navigationParams?.list_name_encoded),
   );
 
   if (error) {
@@ -33,12 +46,10 @@ const FirstScreen: FunctionComponent<FirstScreenProps> = ({navigation}) => {
     );
   }
 
-  const CategoryListItem = ({item}: ListRenderItemInfo<Category>) => {
+  const BookItem = ({item}: ListRenderItemInfo<Book>) => {
     return (
-      <TouchableOpacity
-        onPress={() => navigation.navigate(AppRoute.LIST, {item})}
-        style={styles.item}>
-        <Text style={styles.title}>{item?.display_name}</Text>
+      <TouchableOpacity onPress={() => null} style={styles.item}>
+        <Text style={styles.title}>{item?.author}</Text>
       </TouchableOpacity>
     );
   };
@@ -46,21 +57,23 @@ const FirstScreen: FunctionComponent<FirstScreenProps> = ({navigation}) => {
   return (
     <WrapView>
       <View style={styles.textContainer}>
-        <Text style={styles.text}>Select a bestseller category</Text>
+        <Text style={styles.text}>{navigationParams.display_name}</Text>
       </View>
       <FlatList
         contentContainerStyle={styles.flatListContainer}
         data={data}
-        renderItem={CategoryListItem}
-        keyExtractor={item => item?.list_name_encoded}
+        renderItem={BookItem}
+        keyExtractor={item => item?.title}
       />
     </WrapView>
   );
 };
 
+export default ListScreen;
+
 const styles = StyleSheet.create({
   item: {
-    backgroundColor: Theme.GREEN_COLOR[500],
+    backgroundColor: Theme.GREEN_COLOR[700],
     padding: 20,
     marginVertical: 8,
     marginHorizontal: 16,
@@ -86,5 +99,3 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
-
-export default FirstScreen;

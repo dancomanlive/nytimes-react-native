@@ -1,4 +1,4 @@
-import axios from '@src/api/interceptors';
+import axios from 'axios';
 import {BASE_URL} from '@env';
 
 interface LoginProps {

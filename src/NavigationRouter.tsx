@@ -8,8 +8,8 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import {
   FirstStackParamList,
   SecondStackParamList,
-  ThirdStackParamList,
-  FourthStackParamList,
+  // ThirdStackParamList,
+  // FourthStackParamList,
   FifthStackParamList,
   LoginStackParamList,
   TabStackParamList,
@@ -18,9 +18,10 @@ import {
 import {AppRoute, LoginRoute} from '@src/constants/Routes';
 
 import FirstScreen from '@src/screens/first/FirstScreen';
+import ListScreen from '@src/screens/first/ListScreen';
 import SecondScreen from '@src/screens/second/SecondScreen';
-import ThirdScreen from '@src/screens/third/ThirdScreen';
-import FourthScreen from '@src/screens/fourth/FourthScreen';
+// import ThirdScreen from '@src/screens/third/ThirdScreen';
+// import FourthScreen from '@src/screens/fourth/FourthScreen';
 import FifthScreen from '@src/screens/fifth/FifthScreen';
 import ProfileScreen from '@src/screens/other/Profile';
 import LoginScreen from '@src/screens/login/Login';
@@ -50,6 +51,11 @@ const FirstStackScreen: FunctionComponent = () => {
         component={FirstScreen}
         options={options}
       />
+      <FirstStack.Screen
+        name={AppRoute.LIST}
+        component={ListScreen}
+        options={options}
+      />
     </FirstStack.Navigator>
   );
 };
@@ -67,31 +73,31 @@ const SecondStackScreen: FunctionComponent = () => {
   );
 };
 
-const ThirdStack = createStackNavigator<ThirdStackParamList>();
-const ThirdStackScreen: FunctionComponent = () => {
-  return (
-    <ThirdStack.Navigator>
-      <ThirdStack.Screen
-        name={AppRoute.THIRD}
-        component={ThirdScreen}
-        options={options}
-      />
-    </ThirdStack.Navigator>
-  );
-};
+// const ThirdStack = createStackNavigator<ThirdStackParamList>();
+// const ThirdStackScreen: FunctionComponent = () => {
+//   return (
+//     <ThirdStack.Navigator>
+//       <ThirdStack.Screen
+//         name={AppRoute.THIRD}
+//         component={ThirdScreen}
+//         options={options}
+//       />
+//     </ThirdStack.Navigator>
+//   );
+// };
 
-const FourthStack = createStackNavigator<FourthStackParamList>();
-const FourthStackScreen: FunctionComponent = () => {
-  return (
-    <FourthStack.Navigator>
-      <FourthStack.Screen
-        name={AppRoute.FOURTH}
-        component={FourthScreen}
-        options={options}
-      />
-    </FourthStack.Navigator>
-  );
-};
+// const FourthStack = createStackNavigator<FourthStackParamList>();
+// const FourthStackScreen: FunctionComponent = () => {
+//   return (
+//     <FourthStack.Navigator>
+//       <FourthStack.Screen
+//         name={AppRoute.FOURTH}
+//         component={FourthScreen}
+//         options={options}
+//       />
+//     </FourthStack.Navigator>
+//   );
+// };
 
 const FifthStack = createStackNavigator<FifthStackParamList>();
 const FifthStackScreen: FunctionComponent = () => {
@@ -146,12 +152,12 @@ const BottomTabs = () => {
             case 'SecondTab':
               iconName = focused ? 'duplicate-outline' : 'duplicate';
               return <Ionicons name={iconName} size={size} color={color} />;
-            case 'ThirdTab':
-              iconName = focused ? 'barcode-outline' : 'barcode';
-              return <Ionicons name={iconName} size={size} color={color} />;
-            case 'FourthTab':
-              iconName = focused ? 'chatbox-outline' : 'chatbox';
-              return <Ionicons name={iconName} size={size} color={color} />;
+            // case 'ThirdTab':
+            //   iconName = focused ? 'barcode-outline' : 'barcode';
+            //   return <Ionicons name={iconName} size={size} color={color} />;
+            // case 'FourthTab':
+            //   iconName = focused ? 'chatbox-outline' : 'chatbox';
+            //   return <Ionicons name={iconName} size={size} color={color} />;
             case 'FifthTab':
               iconName = focused ? 'settings-outline' : 'settings';
               return <Ionicons name={iconName} size={size} color={color} />;
@@ -168,7 +174,7 @@ const BottomTabs = () => {
         component={SecondStackScreen}
         options={tabOptions}
       />
-      <Tab.Screen
+      {/* <Tab.Screen
         name="ThirdTab"
         component={ThirdStackScreen}
         options={tabOptions}
@@ -177,7 +183,7 @@ const BottomTabs = () => {
         name="FourthTab"
         component={FourthStackScreen}
         options={tabOptions}
-      />
+      /> */}
       <Tab.Screen
         name="FifthTab"
         component={FifthStackScreen}

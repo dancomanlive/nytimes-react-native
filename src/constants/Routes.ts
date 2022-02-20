@@ -1,5 +1,6 @@
 export enum AppRoute {
   FIRST = 'First',
+  LIST = 'List',
   SECOND = 'Second',
   THIRD = 'Third',
   FOURTH = 'Fourth',

@@ -1,5 +1,6 @@
 import {StackNavigationProp} from '@react-navigation/stack';
 import {AppRoute, LoginRoute} from '@src/constants/Routes';
+import {Category} from '@src/api/queries/fetchBestSellerCategories';
 
 export type TabStackParamList = {
   FirstTab: undefined;
@@ -10,13 +11,17 @@ export type TabStackParamList = {
 };
 
 // FIRST
+interface AppRouteParamsList {
+  item: Category;
+}
 export type FirstStackParamList = {
   [AppRoute.FIRST]: undefined;
+  [AppRoute.LIST]: AppRouteParamsList;
 };
 
 type FirstScreenNavigationProp = StackNavigationProp<
   FirstStackParamList,
-  AppRoute.FIRST
+  AppRoute.LIST
 >;
 
 export type FirstScreenProps = {

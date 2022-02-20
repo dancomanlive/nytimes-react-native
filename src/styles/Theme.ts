@@ -27,4 +27,5 @@ export default {
     700: '#145339',
   },
   BUTTON_COLOR: '#1bb551',
+  WHITE: 'white',
 };
