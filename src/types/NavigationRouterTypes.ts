@@ -73,12 +73,11 @@ export type FourthScreenProps = {
 // FIFTH
 export type FifthStackParamList = {
   [AppRoute.FIFTH]: undefined;
-  [AppRoute.PROFILE]: undefined;
 };
 
 type FifthScreenNavigationProp = StackNavigationProp<
   FifthStackParamList,
-  AppRoute.PROFILE
+  AppRoute.FIFTH
 >;
 
 export type FifthScreenProps = {
@@ -88,7 +87,6 @@ export type FifthScreenProps = {
 //LOGIN
 export type LoginStackParamList = {
   [LoginRoute.LOGIN]: undefined;
-  [LoginRoute.FORGOT_PASSWORD]: undefined;
 };
 
 type LoginScreenNavigationProp = StackNavigationProp<
@@ -98,33 +96,4 @@ type LoginScreenNavigationProp = StackNavigationProp<
 
 export type LoginScreenProps = {
   navigation: LoginScreenNavigationProp;
-};
-
-// FORGOT PASSWORD
-export type ForgotPasswordStackParamList = {
-  [LoginRoute.LOGIN]: undefined;
-  [LoginRoute.FORGOT_PASSWORD]: undefined;
-};
-
-type ForgotPasswordScreenNavigationProp = StackNavigationProp<
-  ForgotPasswordStackParamList,
-  LoginRoute.FORGOT_PASSWORD
->;
-
-export type ForgotPasswordScreenProps = {
-  navigation: ForgotPasswordScreenNavigationProp;
-};
-
-// PROFILE
-export type ProfileStackParamList = {
-  [AppRoute.PROFILE]: undefined;
-};
-
-type ProfileScreenNavigationProp = StackNavigationProp<
-  ProfileStackParamList,
-  AppRoute.PROFILE
->;
-
-export type ProfileScreenProps = {
-  navigation: ProfileScreenNavigationProp;
 };

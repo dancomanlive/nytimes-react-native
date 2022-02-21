@@ -23,9 +23,7 @@ import SecondScreen from '@src/screens/second/SecondScreen';
 import ThirdScreen from '@src/screens/third/ThirdScreen';
 // import FourthScreen from '@src/screens/fourth/FourthScreen';
 // import FifthScreen from '@src/screens/fifth/FifthScreen';
-// import ProfileScreen from '@src/screens/other/Profile';
 import LoginScreen from '@src/screens/login/Login';
-import ForgotPassword from '@src/screens/login/ForgotPassword';
 
 import Theme from '@src/styles/Theme';
 // import Toast from 'react-native-toast-message';
@@ -108,11 +106,6 @@ const ThirdStackScreen: FunctionComponent = () => {
 //         component={FifthScreen}
 //         options={options}
 //       />
-//       <FifthStack.Screen
-//         name={AppRoute.PROFILE}
-//         component={ProfileScreen}
-//         options={options}
-//       />
 //     </FifthStack.Navigator>
 //   );
 // };
@@ -124,11 +117,6 @@ const LoginStackScreen: FunctionComponent = () => {
       <LoginStack.Screen
         name={LoginRoute.LOGIN}
         component={LoginScreen}
-        options={options}
-      />
-      <LoginStack.Screen
-        name={LoginRoute.FORGOT_PASSWORD}
-        component={ForgotPassword}
         options={options}
       />
     </LoginStack.Navigator>
