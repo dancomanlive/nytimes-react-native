@@ -8,6 +8,8 @@ NYTChallenge branch contains:
 - favorites list
 
 # Install
+
+```
 git clone https://github.com/dancomanlive/nytimes-react-native.git
 git checkout feature/NYTChallenge
 yarn 
@@ -15,3 +17,4 @@ cd ios && pod install && cd ..
 yarn start
 yarn run ios
 yarn run android
+```
