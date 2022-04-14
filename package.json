@@ -71,9 +71,6 @@
       "^.+\\.js$": "<rootDir>/node_modules/react-native/jest/preprocessor.js",
       "\\.(ts|tsx)$": "ts-jest"
     },
-    "transformIgnorePatterns": [
-      "node_modules/(?!variables/.*)"
-    ],
     "moduleNameMapper": {
       "^@src(.*)$": "<rootDir>/app/$1"
     },
