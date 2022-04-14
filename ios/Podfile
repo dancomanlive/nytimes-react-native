@@ -5,13 +5,13 @@ platform :ios, '11.0'
 
 target 'NYTimes' do
   config = use_native_modules!
-
+  
   use_react_native!(
     :path => config[:reactNativePath],
     # to enable hermes on iOS, change `false` to `true` and then install pods
     :hermes_enabled => false
   )
-
+  pod 'DoubleConversion', :podspec => '../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec'
   target 'NYTimesTests' do
     inherit! :complete
     # Pods for testing
