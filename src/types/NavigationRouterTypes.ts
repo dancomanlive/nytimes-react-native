@@ -25,7 +25,7 @@ type FirstScreenNavigationProp = StackNavigationProp<
 >;
 
 export type FirstScreenProps = {
-  navigation: FirstScreenNavigationProp;
+  navigation?: FirstScreenNavigationProp;
 };
 
 // SECOND
