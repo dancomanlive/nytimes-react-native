@@ -181,7 +181,7 @@ const BottomTabs = () => {
   );
 };
 
-const Navigator: FunctionComponent = () => {
+const AppNavigator: FunctionComponent = () => {
   const navigationRef = React.useRef(null);
   useReduxDevToolsExtension(navigationRef);
   const token = '123xyz';
@@ -198,4 +198,4 @@ const Navigator: FunctionComponent = () => {
   );
 };
 
-export default React.memo(Navigator);
+export default React.memo(AppNavigator);

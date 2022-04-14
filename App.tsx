@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import RNBootSplash from 'react-native-bootsplash';
-import Navigator from '@src/NavigationRouter';
+import AppNavigator from '@src/AppNavigator';
 import {Provider} from 'react-redux';
 import store from '@src/redux';
 import {QueryClientProvider, QueryClient} from 'react-query';
@@ -17,7 +17,7 @@ const App = () => {
   return (
     <Provider store={store}>
       <QueryClientProvider client={queryClient}>
-        <Navigator />
+        <AppNavigator />
       </QueryClientProvider>
     </Provider>
   );

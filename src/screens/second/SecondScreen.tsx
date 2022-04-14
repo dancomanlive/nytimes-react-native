@@ -22,6 +22,7 @@ const SecondScreen: FunctionComponent = () => {
   const [isModalVisible, setModalVisible] = useState(false);
   const [selectedItem, setSelectedItem] = useState<Book | null>(null);
   const value = useReduxSelector(state => state.favorites);
+  console.log("VALUE", value);
   const dispatch = useReduxDispatch();
 
   useEffect(() => {
